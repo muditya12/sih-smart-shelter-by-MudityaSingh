@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Optimization – SIH26051</title>
+<link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+<div class="card">
+  <h1>Top Ranked Configurations</h1>
+  <p class="muted">
+    Target indoor band: <b>25–30 °C</b>. Ranking favours comfort, stability,
+    low cost and minimum active power.
+    <b>T indoor</b> = passive result (with shade if selected);
+    <b>Active kW</b> = + heating / − cooling needed to hold ≈27.5 °C.
+  </p>
+
+  <table>
+    <tr>
+      <th>#</th><th>Wall</th><th>Roof</th><th>Insul. (m)</th><th>Shade</th>
+      <th>T indoor (°C)</th><th>Band 25–30</th><th>Tau (h)</th>
+      <th>Active kW</th><th>Cost</th><th>Score</th>
+    </tr>
+    {% for c in ranked %}
+    <tr>
+      <td>{{ c.rank }}</td>
+      <td>{{ c.wall }}</td>
+      <td>{{ c.roof }}</td>
+      <td>{{ c.insulation }}</td>
+      <td>{{ 'Yes' if c.shade else 'No' }}</td>
+      <td>{{ '%.1f'|format(c.result.t_after) }}</td>
+      <td>{% if c.result.t_after >= 25 and c.result.t_after <= 30 %}✔{% else %}✘{% endif %}</td>
+      <td>{{ '%.1f'|format(c.result.tau_hours) }}</td>
+      <td>{{ '%+.2f'|format(c.active_w / 1000) }}</td>
+      <td>{{ '%.0f'|format(c.result.cost) }}</td>
+      <td><b>{{ '%.0f'|format(c.score.total) }}</b></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p class="muted">
+    Score breakdown (rank 1): Comfort {{ '%.0f'|format(ranked[0].score.comfort) }} ·
+    Energy {{ '%.0f'|format(ranked[0].score.energy) }} ·
+    Cost {{ '%.0f'|format(ranked[0].score.cost) }} ·
+    Total {{ '%.0f'|format(ranked[0].score.total) }}
+  </p>
+
+  <div class="row">
+    <form method="post" action="/optimize">
+      <input type="hidden" name="design_id" value="{{ design_id }}">
+      <button class="secondary">Re-run Optimization</button>
+    </form>
+    <a href="/compare"><button class="secondary">Compare Designs</button></a>
+    <a href="/"><button>New Analysis</button></a>
+  </div>
+</div>
+</body></html>

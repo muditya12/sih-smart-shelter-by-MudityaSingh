@@ -1,0 +1,4 @@
+id,region,name,outdoor_temp,solar_irradiance,wind_speed
+rajasthan_hot_dry,rajasthan,Rajasthan Hot/Dry Summer (IMD: 46.3°C Jaisalmer),46.3,950,2.5
+meghalaya_warm_humid,meghalaya,Meghalaya Warm-Humid/Sub-Tropical Hill,30.0,550,1.5
+ladakh_cold_arid,ladakh,Ladakh Cold-Arid Desert (Winter),-15.0,750,3.0

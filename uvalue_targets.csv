@@ -1,0 +1,9 @@
+region,climate_type,component,u_min,u_max,strategy
+meghalaya,Warm-Humid/Sub-Tropical Hill,external_wall,1.20,2.20,"Lightweight fast-drying/ventilated walls (Ikra bamboo-lath mud/lime plaster, AAC blocks)"
+meghalaya,Warm-Humid/Sub-Tropical Hill,roof,0.80,1.80,"Sloping CGI sheets with false ceiling/air cavity"
+meghalaya,Warm-Humid/Sub-Tropical Hill,window,4.00,5.80,"Large openings for cross-ventilation; single glass/louvers"
+ladakh,Cold-Arid Desert,external_wall,0.30,0.60,"High thermal mass + thick insulation (rammed earth/adobe with straw sandwich)"
+ladakh,Cold-Arid Desert,roof,0.40,0.70,"Flat layered roof: poplar/willow beams, willow twigs, thick straw, mud cap"
+ladakh,Cold-Arid Desert,window,1.60,2.80,"Small south-facing double-pane IGUs, airtight frames"
+rajasthan,Hot/Dry Desert,external_wall,0.30,0.80,"Shaded high-mass walls (clay/earth) + straw insulation, night ventilation"
+rajasthan,Hot/Dry Desert,roof,0.40,0.80,"Thick straw/straw-thatch roof over GI frame, reflective shading"
